@@ -16,6 +16,17 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
+    :root{
+      
+--orange:hsl(26, 100%, 55%);
+--paleOrange:hsl(25, 100%, 94%);
+--veryDarkBlue:hsl(220, 13%, 13%);
+--darkGrayishBlue:hsl(219, 9%, 45%);
+--grayishBlue:hsl(220, 14%, 75%);
+--lightGrayishBlue:hsl(223, 64%, 98%);
+--white:hsl(0, 0%, 100%);
+--black:hsl(0, 0%, 0%);
+    }
     *{
       margin: 0;
       padding: 0;
@@ -92,24 +103,18 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
+      width: 100%;
     }
     .gray-line{
       width: 100%;
-    height: 1px; 
+    height: 0.0625rem; 
     background-color: #e0e0e0; 
-    margin: 40px 0; 
+    margin: 2.5rem 0; 
     padding: 0; 
     } 
     
 
-    a.nav-link {
-    list-style-type: none;
-    display: flex;
-    gap: 30px; /* Espaçamento entre os itens do menu */
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-}
+    
 
 li a.nav-link {
     position: relative; /* Necessário para posicionar o pseudo-elemento ::after */
@@ -118,10 +123,10 @@ li a.nav-link {
 a.nav-link{
     text-decoration: none;
     color: rgb(217, 217, 217);
-    font-size: 16px;
+    font-size: 1rem;
     position: relative;
     display: inline-block;
-    padding: 10px 0; /* Espaçamento visual */
+    padding: 0.625rem 0; /* Espaçamento visual */
     font-weight: normal; /* Torna o texto em negrito */
 }
 
@@ -130,9 +135,9 @@ a.nav-link::after {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -40px; /* Distância de 10px abaixo do link */
+    bottom: -2.5rem; /* Distância de 10px abaixo do link */
     width: 0;
-    height: 3px; /* Espessura da linha */
+    height: 0.1875rem; /* Espessura da linha */
     background-color: #ff7a00; /* Cor da linha (laranja) */
     transition: width 0.3s ease; /* Animação suave */
 }
@@ -153,50 +158,118 @@ img.rounded-circle:hover{
 }
 .cart-card {
     position: absolute;
-    top: 70px; /* Ajusta conforme necessário */
+    top: 4.375rem; /* Ajusta conforme necessário */
     right: 15rem;
-    width: 300px;
+    width: 18.75rem;
     height: 14rem;
     background-color: #fff;
     box-shadow: 0 10px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 20px;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
     display: none; /* Inicialmente oculto */
     z-index: 100;
 }
 
 .cart-card h3 {
-    margin: 0 0 10px;
-    font-size: 18px;
+    margin: 0 0 0.625rem;
+    font-size: 1.125rem;
     font-weight: bold;
 }
 .gray-line-cart{
     width: 100%;
-    height: 1px; 
+    height: 0.0625rem; 
     background-color: #e0e0e0; 
-    margin: 24px 0; 
+    margin: 1.5rem 0; 
     padding: 0; 
     }
 .cart-card p {
-    margin: 50px;
+    margin: 3.125rem;
     color: gray;
     text-align: center;
     font-weight: bold;
 }
-.nav-side-bar{
-  display: none;
+header{
+  position: relative;
+  z-index: 100;
 }
-@media (max-width: 768px) { 
-    ul.nav{
-      display: none;
-    }
-    .gray-line{
-      display: none;
-    }
-    
 
+.nav-side-bar {
+    position: fixed;
+    top: 0;
+    left: -17.5rem; /* Escondido inicialmente fora da tela */
+    width: 17.5rem;
+    height: 100%;
+    background-color: var(--lightGrayishBlue); /* Fundo branco semi-transparente */
+    transition: left 0.3s ease;
+    z-index: 999;
+    padding: 1.25rem;
+    overflow-y: auto;
+}
+
+.nav-side-bar.active {
+    left: 0; /* Traz a barra lateral para a tela */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.336); /* Fundo preto semi-transparente */
+    display: none;
+    z-index: 200;
+}
+
+.overlay.active {
+    display: block;
+}
+
+.btn-nav-menu {
+    color: black;
+    font-weight: bold;
+    border: none;
+    background: none;
+    padding: 0.625rem 0;
+    text-align: left;
+    width: 100%;
+}
+
+.img-close-nav {
+    display: block;
+    margin-bottom: 1.25rem;
+}
+
+.menu-button {
+    position: fixed;
+    top: 1.25rem;
+    left: 1.25rem;
+    z-index: 300;
+    background-color: #fff;
+    border: none;
+    padding: 0.625rem;
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+  .container-nav{
+    justify-content: space-around;
+  }
+  ul.nav-links{
+    display: none;
+  }
+  .gray-line{
+    display: none;
+  }
+
+}
+@media (min-width: 769px) { 
+    .nav-side-bar {
+        display: none; /* Esconde a barra lateral em telas grandes */
+    }
     
-    
+    .menu-button {
+        display: none; /* Esconde o botão de menu em telas grandes */
+    }
 }
 
   </style>
@@ -205,12 +278,17 @@ img.rounded-circle:hover{
   <header class="p-4 mb-3">
     <div class="container">
       <div class="container-nav">
-        
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
-          <img src="images/logo.svg" class="bi me-5 profile" width="auto" height="auto" aria-label="Bootstrap">
-        </a>
+        <div class="d-flex gap-3">
+          <div class="d-flex">
+            
+            <button class="menu-button"><img src="images/icon-menu.svg" alt="menu"></button>
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+              <img src="images/logo.svg" class="bi me-5 profile" width="auto" height="auto" aria-label="Bootstrap">
+            </a>
+          </div>
+        </div>
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 nav-links">
           <li><a href="#" class="nav-link px-2 ">Collections</a></li>
           <li><a href="#" class="nav-link px-2">Men</a></li>
           <li><a href="#" class="nav-link px-2">Women</a></li>
@@ -237,65 +315,41 @@ img.rounded-circle:hover{
   </header>
   <main class="container">
     <div class="flex-shrink-0 p-3 nav-side-bar" style="width: 280px;">
-      <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-        <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-        <span class="fs-5 fw-semibold">Collapsible</span>
-      </a>
+      
+      <a href="#" class="img-close-nav"><img src="images/icon-close.svg" alt="close"></a>
       <ul class="list-unstyled ps-0">
         <li class="mb-1">
-          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
-            Home
+          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-nav-menu" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+            Collections
           </button>
-          <div class="collapse" id="home-collapse" style="">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
-            </ul>
-          </div>
         </li>
         <li class="mb-1">
-          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-            Dashboard
+          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-nav-menu" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+            Men
           </button>
-          <div class="collapse" id="dashboard-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Weekly</a></li>
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Monthly</a></li>
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Annually</a></li>
-            </ul>
-          </div>
+         
         </li>
         <li class="mb-1">
-          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-            Orders
+          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-nav-menu" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+            Women
           </button>
-          <div class="collapse" id="orders-collapse" style="">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New</a></li>
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Processed</a></li>
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a></li>
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a></li>
-            </ul>
-          </div>
+
         </li>
-        <li class="border-top my-3"></li>
         <li class="mb-1">
-          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-            Account
+          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-nav-menu" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+            About
           </button>
-          <div class="collapse" id="account-collapse" style="">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New...</a></li>
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Profile</a></li>
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Settings</a></li>
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sign out</a></li>
-            </ul>
-          </div>
+          
+        </li>
+        <li class="mb-1">
+          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-nav-menu" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+            Contact
+          </button>
+          
         </li>
       </ul>
     </div>
+    <div class="overlay"></div>
     <!-- <div class="row">
       <div class="col-6">
         <div class="main-image">
@@ -355,6 +409,29 @@ img.rounded-circle:hover{
         }
     });
 });
+    function toggleSidebar() {
+        const navSideBar = document.querySelector('.nav-side-bar');
+        const overlay = document.querySelector('.overlay');
+
+        // Verifique se a largura da tela é menor que 768px
+        if (window.innerWidth < 768) {
+            navSideBar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+    }
+
+    document.querySelector('.menu-button').addEventListener('click', toggleSidebar);
+
+    document.querySelector('.img-close-nav').addEventListener('click', function() {
+        document.querySelector('.nav-side-bar').classList.remove('active');
+        document.querySelector('.overlay').classList.remove('active');
+    });
+
+    document.querySelector('.overlay').addEventListener('click', function() {
+        document.querySelector('.nav-side-bar').classList.remove('active');
+        document.querySelector('.overlay').classList.remove('active');
+    });
+
   </script>
 </body>
 </html>
