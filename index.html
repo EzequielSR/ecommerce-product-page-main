@@ -188,66 +188,18 @@ header{
     padding: 0.625rem;
     cursor: pointer;
 }
- /* .main-image img {
-      width: 100%;
-      height: auto;
-    }
+.subtitle-text{
+  font-weight: semibold;
+  color: gray;
+  margin: 25px 0px;
+  font-size: 14px;
+}
 
-    .thumbnail-images img {
-      cursor: pointer;
-      margin: 0px;
-      padding: 5px;
-      border-radius: 10px;
-    }
-
-    .thumbnail-images img.selected {
-      border: 2px solid orange;
-      opacity: 0.7;
-    }
-
-    .product-info {
-      padding: 20px;
-    }
-
-    .price {
-      display: flex;
-      align-items: center;
-    }
-
-    .price p {
-      margin-right: 10px;
-    }
-
-    .discount {
-      background-color: #ffcccb;
-      padding: 2px 5px;
-      border-radius: 5px;
-    }
-
-    .strike-through {
-      text-decoration: line-through;
-      color: gray;
-    }
-
-    .quantity-control {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .quantity-control button {
-      width: 40px;
-      height: 40px;
-    }
-
-    .quantity-control p {
-      margin: 0 10px;
-    }
-
-    .btn-cart {
-      width: 100%;
-    }
-      */
+.title-text{
+  font-weight: bold;
+  width: 17rem;
+  margin-bottom: 20px;
+}
 @media (max-width: 768px) {
   .container-nav{
     justify-content: space-around;
@@ -349,42 +301,67 @@ header{
       </ul>
     </div>
     <div class="overlay"></div>
-    <!-- <div class="row">
-      <div class="col-6">
-        <div class="main-image">
-          <img src="images/image-product-1.jpg" id="mainImage" alt="Main Product Image">
+    <div class="flex-shrink-0 p-3 nav-side-bar" style="width: 280px;">
+      <!-- Existing sidebar code -->
+    </div>
+    <div class="overlay"></div>
+  
+    <!-- New main content code -->
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-md-6">
+          <!-- Carousel for images -->
+          <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="images/image-product-1.jpg" class="d-block w-100" alt="Product Image 1">
+              </div>
+              <div class="carousel-item">
+                <img src="images/image-product-2.jpg" class="d-block w-100" alt="Product Image 2">
+              </div>
+              <div class="carousel-item">
+                <img src="images/image-product-3.jpg" class="d-block w-100" alt="Product Image 3">
+              </div>
+              <div class="carousel-item">
+                <img src="images/image-product-4.jpg" class="d-block w-100" alt="Product Image 4">
+              </div>
+              <!-- Add more images as needed -->
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
-        <div class="thumbnail-images d-flex justify-content-start">
-          <img src="images/image-product-1-thumbnail.jpg" alt="Thumbnail 1" onclick="changeImage('images/image-product-1.jpg', this)" class="Thumbnail">
-          <img src="images/image-product-2-thumbnail.jpg" alt="Thumbnail 2" onclick="changeImage('images/image-product-2.jpg', this)">
-          <img src="images/image-product-3-thumbnail.jpg" alt="Thumbnail 3" onclick="changeImage('images/image-product-3.jpg', this)">
-          <img src="images/image-product-4-thumbnail.jpg" alt="Thumbnail 4" onclick="changeImage('images/image-product-4.jpg', this)">
+        <div class="col-md-6">
+          <h6 class=" subtitle-text">SNEAKER COMPANY</h>
+          <h1 class="title-text">Fall Limited Edition Sneakers</h1>
+          <p class="text-muted">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+          <div class="d-flex align-items-center mb-3">
+            <span class="h4 me-2">$125.00</span>
+            <span class="badge bg-warning text-dark">50% OFF</span>
+          </div>
+          <p class="text-muted text-decoration-line-through">$250.00</p>
+          <div class="d-flex align-items-center mb-3">
+            <button class="btn btn-outline-secondary" onclick="decrement()">-</button>
+            <input type="text" class="form-control text-center mx-2" value="0" id="quantity" style="width: 60px;" readonly>
+            <button class="btn btn-outline-secondary" onclick="increment()">+</button>
+          </div>
+          <button class="btn btn-warning w-100">Add to cart</button>
         </div>
-      </div>
-      
-      <div class="col-6 product-info">
-        <p class="fs-5">Sneaker Company</p>
-        <h1 class="fs-2">Fall Limited Edition Sneakers</h1>
-        <p class="fs-6">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
-        <div class="price">
-          <p class="fs-5">$125.00</p>
-          <p class="fs-6 discount">50%</p>
-        </div>
-        <p class="fs-5 strike-through">$250.00</p>
-        <div class="quantity-control" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-outline-dark">-</button>
-          <p class="fs-5">0</p>
-          <button type="button" class="btn btn-outline-dark">+</button>
-        </div>
-        <button type="button" class="btn btn-dark btn-cart">Add to cart</button>
       </div>
     </div>
+    
   </main>
   <footer>
     <div class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
-    </div> -->
+      Coded by <a href="https://www.frontendmentor.io/profile/EzequielSR">Ezequiel</a>.
+    </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script>
@@ -430,7 +407,17 @@ header{
         document.querySelector('.nav-side-bar').classList.remove('active');
         document.querySelector('.overlay').classList.remove('active');
     });
+    function increment() {
+    var quantity = document.getElementById("quantity");
+    quantity.value = parseInt(quantity.value) + 1;
+  }
 
+  function decrement() {
+    var quantity = document.getElementById("quantity");
+    if (parseInt(quantity.value) > 0) {
+      quantity.value = parseInt(quantity.value) - 1;
+    }
+  }
   </script>
 </body>
 </html>
