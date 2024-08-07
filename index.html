@@ -35,7 +35,9 @@
     body{
       font-family: Kumbh Sans, sans-serif;
     }
-
+    header{
+      padding: 20px 0px 0px 0px;
+    }
     .container-nav{
       display:flex;
       flex-wrap: wrap;
@@ -125,10 +127,7 @@ img.rounded-circle:hover{
     text-align: center;
     font-weight: bold;
 }
-header{
-  position: relative;
-  z-index: 100;
-}
+
 
 .nav-side-bar {
     position: fixed;
@@ -207,6 +206,23 @@ header{
 .btn-buy > img{
   margin-right: 20px;
 }
+.thumbnails{
+  display: flex;
+  justify-content: space-between;
+  margin: 24px auto 0px;
+    width: 385px;
+    gap: 20px;
+}
+.thumbnail img{
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+}
+.thumbnail img.selected {
+      border: 2px solid var(--orange);
+      opacity: .6;
+    }
 
 @media (max-width: 768px) {
   .container-nav{
@@ -228,6 +244,9 @@ header{
 .carousel-control-prev,.carousel-control-next {
     opacity: 1;
     transition: transform none;
+}
+.thumbnails{
+  display: none;
 }
 .title-text{
   width: 15rem;
@@ -253,7 +272,7 @@ span.price{
   justify-content: flex-end;
 }
 .count{
-  background-color: rgba(235, 235, 235, 0.877);
+  background-color: var(--lightGrayishBlue);
   width: 430px;
   margin: auto;
   padding: 10px;
@@ -263,7 +282,7 @@ span.price{
 }
 .number-input{
   border: none;
-  background-color:  rgba(235, 235, 235, 0.877);
+  background-color:  var(--lightGrayishBlue);
   font-weight: bold;
 }
 
@@ -285,6 +304,9 @@ span.price{
     width: 28rem;
     height: 17rem;
 }
+.btn-buy{
+  width: 430px;
+}
 }
 @media (min-width: 769px) { 
     .nav-side-bar {
@@ -305,16 +327,41 @@ span.price{
   width: 25rem;
   margin: auto;
 }
+span.price{
+  font-size: 30px;
+  font-weight: bold;
+}
 .title-text{
   width: 25rem;
 }
 .text-muted{
   width: 30rem;
+  margin-top: 10px;
 }
 .pricing{
   display: block;
 }
-
+.purchase{
+  display: flex;
+  gap: 20px;
+}
+.count{
+  background-color: var(--lightGrayishBlue);
+  width: 230px;
+  padding: 10px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+.number-input{
+  border: none;
+  background-color:  var(--lightGrayishBlue);
+  font-weight: bold;
+}
+.btn-buy{
+  width: 50%;
+  height: 55px;
+}
 }
 
 .attribution { font-size: 11px; text-align: center; }
@@ -322,7 +369,7 @@ span.price{
   </style>
 </head>
 <body>
-  <header class="p-4 mb-3">
+  <header>
     <div class="container" >
       <div class="container-nav">
         <div class="d-flex gap-3">
@@ -407,7 +454,7 @@ span.price{
       <div class="row">
         <div class="col-md-6 imgs-carousel-card">
           <!-- Carousel for images -->
-          <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div id="productCarousel" class="carousel slide" data-bs-interval="false">
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img src="images/image-product-1.jpg" class="d-block w-100" alt="Product Image 1">
@@ -434,6 +481,21 @@ span.price{
               <img src="images/icon-next.svg" alt="next icon" class="icon-control">
             </button>
           </div>
+          <div class="thumbnails">
+            
+              <div class=" thumbnail">
+                <img src="images/image-product-1.jpg" class="img-fluid selected" alt="Thumbnail 1" onclick="changeImage(0, this)">
+              </div>
+              <div class=" thumbnail">
+                <img src="images/image-product-2.jpg" class="img-fluid" alt="Thumbnail 2" onclick="changeImage(1, this)">
+              </div>
+              <div class=" thumbnail">
+                <img src="images/image-product-3.jpg" class="img-fluid" alt="Thumbnail 3" onclick="changeImage(2, this)">
+              </div>
+              <div class=" thumbnail">
+                <img src="images/image-product-4.jpg" class="img-fluid" alt="Thumbnail 4" onclick="changeImage(3, this)">
+              </div>
+          </div>
         </div>
         <div class="col-md-6 contain">
           <h6 class=" subtitle-text">SNEAKER COMPANY</h>
@@ -444,12 +506,21 @@ span.price{
             <span class="badge bg-black discount">50%</span>
             <p class="text-muted text-decoration-line-through">$250.00</p>
           </div>
-          <div class="d-flex align-items-center mb-3 count">
+          <!-- <div class="d-flex align-items-center mb-3 count">
             <button class="btn btn-minus" onclick="decrement()"><img src="images/icon-minus.svg" alt=""></button>
             <input type="text" class="form-control text-center mx-2 number-input" value="0" id="quantity" style="width: 60px;" readonly>
             <button class="btn btn-plus" onclick="increment()"><img src="images/icon-plus.svg" alt=""></button>
           </div>
-          <button class=" w-100 btn-buy"><img src="images/icon-cart.svg" alt="cart image">Add to cart</button>
+          <button class=" btn-buy"><img src="images/icon-cart.svg" alt="cart image">Add to cart</button> -->
+          <div class="purchase">
+
+            <div class="d-flex align-items-center mb-3 count">
+              <button class="btn btn-minus" onclick="decrement()"><img src="images/icon-minus.svg" alt=""></button>
+              <input type="text" class="form-control text-center mx-2 number-input" value="0" id="quantity" style="width: 60px;" readonly>
+              <button class="btn btn-plus" onclick="increment()"><img src="images/icon-plus.svg" alt=""></button>
+            </div>
+            <button class=" btn-buy"><img src="images/icon-cart.svg" alt="cart image">Add to cart</button>
+          </div>
         </div>
       </div>
     </div>
@@ -516,6 +587,34 @@ span.price{
       quantity.value = parseInt(quantity.value) - 1;
     }
   }
+  function changeImage(index, element) {
+      var carousel = document.querySelector('#productCarousel .carousel-inner');
+      var items = carousel.querySelectorAll('.carousel-item');
+      items.forEach(function(item, i) {
+        item.classList.remove('active');
+        if (i === index) {
+          item.classList.add('active');
+        }
+      });
+
+      var thumbnails = document.querySelectorAll('.thumbnail img');
+      thumbnails.forEach(function(thumbnail) {
+        thumbnail.classList.remove('selected');
+      });
+      element.classList.add('selected');
+    }
+
+    function decrement() {
+      var quantity = document.getElementById('quantity');
+      if (quantity.value > 0) {
+        quantity.value = parseInt(quantity.value) - 1;
+      }
+    }
+
+    function increment() {
+      var quantity = document.getElementById('quantity');
+      quantity.value = parseInt(quantity.value) + 1;
+    }
   </script>
 </body>
 </html>
