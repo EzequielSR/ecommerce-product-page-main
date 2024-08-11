@@ -102,7 +102,6 @@ img.rounded-circle:hover{
     width: 18.75rem;
     height: 14rem;
     background-color: #fff;
-    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
     padding: 1.25rem;
     display: none; 
@@ -227,7 +226,9 @@ img.rounded-circle:hover{
       border: 2px solid var(--orange);
       opacity: .6;
     }
-
+.thumbnail:hover{
+  opacity: 0.7;
+}
 @media (max-width: 768px) {
   .container-nav{
     justify-content: space-between;
@@ -421,8 +422,8 @@ span.price{
   100% {
     -webkit-transform: translateZ(50px);
             transform: translateZ(50px);
-    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
-            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+    -webkit-box-shadow: 0 10px 20px  rgba(0, 0, 0, 0.25);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
           }
         }
         @keyframes shadow-drop-2-center {
@@ -435,8 +436,8 @@ span.price{
           100% {
             -webkit-transform: translateZ(50px);
             transform: translateZ(50px);
-            -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
-            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+            -webkit-box-shadow: 0 10px 20px  rgba(0, 0, 0, 0.25);
+            box-shadow: 0 10px 20px  rgba(0, 0, 0, 0.25);
           }
         }
       }
@@ -548,6 +549,7 @@ span.price{
               </div>
               <!-- Add more images as needed -->
             </div>
+            
             <button class="carousel-control-prev button-img" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
               <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
               <img src="images/icon-previous.svg" alt="previos icon" class="icon-control">
