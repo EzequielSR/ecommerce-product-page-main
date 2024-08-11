@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/media-query.css">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
@@ -18,508 +20,6 @@
 
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    :root {
-
-      --orange: hsl(26, 100%, 55%);
-      --paleOrange: hsl(25, 93%, 83%);
-      --veryDarkBlue: hsl(220, 13%, 13%);
-      --darkGrayishBlue: hsl(219, 9%, 45%);
-      --grayishBlue: hsl(220, 14%, 75%);
-      --lightGrayishBlue: hsl(223, 64%, 98%);
-      --white: hsl(0, 0%, 100%);
-      --black: hsl(0, 0%, 0%);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Kumbh Sans, sans-serif;
-    }
-
-    header {
-      padding: 20px 0px 0px 0px;
-    }
-
-    .container-nav {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-    }
-
-    .gray-line {
-      width: 100%;
-      height: 0.0625rem;
-      background-color: #e0e0e0;
-      margin: 2.5rem 0;
-      padding: 0;
-    }
-
-
-
-
-    li a.nav-link {
-      position: relative;
-      /* Necessário para posicionar o pseudo-elemento ::after */
-    }
-
-    a.nav-link {
-      text-decoration: none;
-      color: rgb(217, 217, 217);
-      font-size: 1rem;
-      position: relative;
-      display: inline-block;
-      padding: 0.625rem 0;
-      /* Espaçamento visual */
-      font-weight: normal;
-      /* Torna o texto em negrito */
-    }
-
-    a.nav-link::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: -2.5rem;
-      width: 0;
-      height: 0.1875rem;
-      background-color: #ff7a00;
-      transition: width 0.3s ease;
-    }
-
-    a.nav-link:hover::after {
-      width: 50%;
-    }
-
-    a.nav-link:hover {
-      color: gray;
-      /* Altera a cor do texto no hover */
-    }
-
-    img.rounded-circle:hover {
-      border: 0.20rem solid orange;
-    }
-
-    .cart-icon-container {
-      position: relative;
-      cursor: pointer;
-    }
-
-    .cart-card {
-      position: absolute;
-      top: 4.375rem;
-      /* Ajusta conforme necessário */
-      right: 15rem;
-      width: 18.75rem;
-      height: 14rem;
-      background-color: #fff;
-      border-radius: 0.5rem;
-      padding: 1.25rem;
-      display: none;
-      z-index: 100;
-    }
-
-    .cart-card h3 {
-      margin: 0 0 0.625rem;
-      font-size: 1.125rem;
-      font-weight: bold;
-    }
-
-    .gray-line-cart {
-      width: 100%;
-      height: 0.0625rem;
-      background-color: #e0e0e0;
-      margin: 1.5rem 0;
-      padding: 0;
-    }
-
-    .cart-card p {
-      margin: 3.125rem;
-      color: gray;
-      text-align: center;
-      font-weight: bold;
-    }
-
-
-    .nav-side-bar {
-      position: fixed;
-      top: 0;
-      left: -17.5rem;
-      /* Escondido inicialmente fora da tela */
-      width: 17.5rem;
-      height: 100%;
-      background-color: var(--lightGrayishBlue);
-      /* Fundo branco semi-transparente */
-      transition: left 0.3s ease;
-      z-index: 999;
-      padding: 1.25rem;
-      overflow-y: auto;
-    }
-
-    .nav-side-bar.active {
-      left: 0;
-      /* Traz a barra lateral para a tela */
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.336);
-      /* Fundo preto semi-transparente */
-      display: none;
-      z-index: 200;
-    }
-
-    .overlay.active {
-      display: block;
-    }
-
-    .btn-nav-menu {
-      color: black;
-      font-weight: bold;
-      border: none;
-      background: none;
-      padding: 0.625rem 0;
-      text-align: left;
-      width: 100%;
-    }
-
-    .img-close-nav {
-      display: block;
-      margin-bottom: 1.25rem;
-    }
-
-    .menu-button {
-
-      background-color: #fff;
-      border: none;
-      padding: 0.625rem;
-      cursor: pointer;
-    }
-
-    .subtitle-text {
-      font-weight: semibold;
-      color: gray;
-      margin: 25px 0px;
-      font-size: 14px;
-    }
-
-    .title-text {
-      font-weight: bold;
-      width: 17rem;
-      margin-bottom: 20px;
-    }
-
-    .btn-buy {
-      background-color: var(--orange);
-      font-weight: bold;
-      padding: 10px;
-      height: 50px;
-      border: 0;
-      border-radius: 10px;
-    }
-
-    .btn-buy>img {
-      margin-right: 20px;
-    }
-
-    .btn-buy:hover {
-      background-color: var(--paleOrange);
-      transition: background-color 0.2s ease;
-    }
-
-    .thumbnails {
-      display: flex;
-      justify-content: space-between;
-      margin: 24px auto 0px;
-      width: 385px;
-      gap: 20px;
-    }
-
-    .thumbnail img {
-      cursor: pointer;
-      opacity: 1;
-      transition: opacity 0.3s ease;
-      border-radius: 10px;
-    }
-
-    .thumbnail img.selected {
-      border: 2px solid var(--orange);
-      opacity: .6;
-    }
-
-    .thumbnail:hover {
-      opacity: 0.7;
-    }
-
-    @media (max-width: 768px) {
-      .container-nav {
-        justify-content: space-between;
-      }
-
-      ul.nav-links {
-        display: none;
-      }
-
-      .gray-line {
-        display: none;
-      }
-
-      .button-img {
-        height: 51px;
-        width: 50px;
-        border-radius: 50%;
-        margin: auto 10px;
-        background-color: white;
-      }
-
-      .carousel-control-prev,
-      .carousel-control-next {
-        opacity: 1;
-        transition: transform none;
-      }
-
-      .thumbnails {
-        display: none;
-      }
-
-      .title-text {
-        width: 15rem;
-      }
-
-      .pricing {
-        margin: 20px auto;
-        display: flex;
-      }
-
-      .text-muted {
-        width: 370px;
-      }
-
-      span.price {
-        font-weight: bold;
-      }
-
-      .discount {
-        color: var(--white);
-        width: 50px;
-        height: 24px;
-      }
-
-      .text-muted {
-        display: flex;
-        align-self: end;
-        justify-content: flex-end;
-      }
-
-      .count {
-        background-color: var(--lightGrayishBlue);
-        width: 430px;
-        margin: auto;
-        padding: 10px;
-        border-radius: 10px;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .number-input {
-        border: none;
-        background-color: var(--lightGrayishBlue);
-        font-weight: bold;
-      }
-
-
-      .imgs-carousel-card {
-        padding: 0;
-      }
-
-      .cart {
-        margin-right: 30px;
-      }
-
-      .contain {
-        padding: 20px;
-      }
-
-      .cart-card {
-        top: 4.375rem;
-        right: 0;
-        left: 0;
-        margin: auto;
-        width: 28rem;
-        height: 17rem;
-        -webkit-animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-
-      }
-
-      @-webkit-keyframes shadow-drop-2-center {
-        0% {
-          -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-          -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-          box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-        }
-
-        100% {
-          -webkit-transform: translateZ(50px);
-          transform: translateZ(50px);
-          -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
-          box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
-        }
-      }
-
-      @keyframes shadow-drop-2-center {
-        0% {
-          -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-          -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-          box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-        }
-
-        100% {
-          -webkit-transform: translateZ(50px);
-          transform: translateZ(50px);
-          -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
-          box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
-        }
-      }
-
-      .btn-buy {
-        width: 430px;
-      }
-    }
-
-    @media (min-width: 769px) {
-      .nav-side-bar {
-        display: none;
-      }
-
-      .menu-button {
-        display: none;
-      }
-
-      .button-img {
-        display: none;
-      }
-
-      .cart {
-        margin-right: 30px;
-      }
-
-      .carousel-inner {
-        border-radius: 20px;
-        width: 25rem;
-        margin: auto;
-      }
-
-      span.price {
-        font-size: 30px;
-        font-weight: bold;
-      }
-
-      .title-text {
-        width: 25rem;
-      }
-
-      .text-muted {
-        width: 30rem;
-        margin-top: 10px;
-      }
-
-      .pricing {
-        display: block;
-      }
-
-      .purchase {
-        display: flex;
-        gap: 20px;
-      }
-
-      .count {
-        background-color: var(--lightGrayishBlue);
-        width: 230px;
-        padding: 10px;
-        border-radius: 10px;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .number-input {
-        border: none;
-        background-color: var(--lightGrayishBlue);
-        font-weight: bold;
-      }
-
-      .btn-buy {
-        width: 50%;
-        height: 55px;
-      }
-
-      .cart-card {
-        top: 4.375rem;
-        right: 0;
-        left: 58rem;
-        margin: auto;
-        width: 28rem;
-        height: 17rem;
-        -webkit-animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-
-      }
-
-      @-webkit-keyframes shadow-drop-2-center {
-        0% {
-          -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-          -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-          box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-        }
-
-        100% {
-          -webkit-transform: translateZ(50px);
-          transform: translateZ(50px);
-          -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-        }
-      }
-
-      @keyframes shadow-drop-2-center {
-        0% {
-          -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-          -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-          box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-        }
-
-        100% {
-          -webkit-transform: translateZ(50px);
-          transform: translateZ(50px);
-          -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-        }
-      }
-    }
-
-
-    .attribution {
-      font-size: 11px;
-      text-align: center;
-    }
-
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
-  </style>
 </head>
 
 <body>
@@ -591,28 +91,24 @@
             data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
             About
           </button>
-
         </li>
         <li class="mb-1">
           <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-nav-menu"
             data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
             Contact
           </button>
-
         </li>
       </ul>
     </div>
     <div class="overlay"></div>
-    <div class="flex-shrink-0 p-3 nav-side-bar" style="width: 280px;">
-      <!-- Existing sidebar code -->
-    </div>
+    <div class="flex-shrink-0 p-3 nav-side-bar" style="width: 280px;"></div>
     <div class="overlay"></div>
 
-    <!-- New main content code -->
+
     <div class="my-5 ">
       <div class="row">
         <div class="col-md-6 imgs-carousel-card">
-          <!-- Carousel for images -->
+
           <div id="productCarousel" class="carousel slide" data-bs-interval="false">
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -627,18 +123,16 @@
               <div class="carousel-item">
                 <img src="images/image-product-4.jpg" class="d-block w-100" alt="Product Image 4">
               </div>
-              <!-- Add more images as needed -->
+
             </div>
 
             <button class="carousel-control-prev button-img" type="button" data-bs-target="#productCarousel"
               data-bs-slide="prev">
-              <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
               <img src="images/icon-previous.svg" alt="previos icon" class="icon-control">
               <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next button-img" type="button" data-bs-target="#productCarousel"
               data-bs-slide="next">
-              <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
               <span class="visually-hidden">Next</span>
               <img src="images/icon-next.svg" alt="next icon" class="icon-control">
             </button>
@@ -670,12 +164,6 @@
               <span class="badge bg-black discount">50%</span>
               <p class="text-muted text-decoration-line-through">$250.00</p>
             </div>
-            <!-- <div class="d-flex align-items-center mb-3 count">
-            <button class="btn btn-minus" onclick="decrement()"><img src="images/icon-minus.svg" alt=""></button>
-            <input type="text" class="form-control text-center mx-2 number-input" value="0" id="quantity" style="width: 60px;" readonly>
-            <button class="btn btn-plus" onclick="increment()"><img src="images/icon-plus.svg" alt=""></button>
-          </div>
-          <button class=" btn-buy"><img src="images/icon-cart.svg" alt="cart image">Add to cart</button> -->
             <div class="purchase">
 
               <div class="d-flex align-items-center mb-3 count">
@@ -700,89 +188,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const cartIcon = document.getElementById("cartIcon");
-      const cartCard = document.getElementById("cartCard");
-
-      cartIcon.addEventListener("click", function () {
-        // Alterna a visibilidade do card
-        if (cartCard.style.display === "none" || cartCard.style.display === "") {
-          cartCard.style.display = "block";
-        } else {
-          cartCard.style.display = "none";
-        }
-      });
-
-      // Fecha o card se clicar fora dele
-      document.addEventListener("click", function (event) {
-        if (!cartIcon.contains(event.target) && !cartCard.contains(event.target)) {
-          cartCard.style.display = "none";
-        }
-      });
-    });
-    function toggleSidebar() {
-      const navSideBar = document.querySelector('.nav-side-bar');
-      const overlay = document.querySelector('.overlay');
-
-      // Verifique se a largura da tela é menor que 768px
-      if (window.innerWidth < 768) {
-        navSideBar.classList.toggle('active');
-        overlay.classList.toggle('active');
-      }
-    }
-
-    document.querySelector('.menu-button').addEventListener('click', toggleSidebar);
-
-    document.querySelector('.img-close-nav').addEventListener('click', function () {
-      document.querySelector('.nav-side-bar').classList.remove('active');
-      document.querySelector('.overlay').classList.remove('active');
-    });
-
-    document.querySelector('.overlay').addEventListener('click', function () {
-      document.querySelector('.nav-side-bar').classList.remove('active');
-      document.querySelector('.overlay').classList.remove('active');
-    });
-    function increment() {
-      var quantity = document.getElementById("quantity");
-      quantity.value = parseInt(quantity.value) + 1;
-    }
-
-    function decrement() {
-      var quantity = document.getElementById("quantity");
-      if (parseInt(quantity.value) > 0) {
-        quantity.value = parseInt(quantity.value) - 1;
-      }
-    }
-    function changeImage(index, element) {
-      var carousel = document.querySelector('#productCarousel .carousel-inner');
-      var items = carousel.querySelectorAll('.carousel-item');
-      items.forEach(function (item, i) {
-        item.classList.remove('active');
-        if (i === index) {
-          item.classList.add('active');
-        }
-      });
-
-      var thumbnails = document.querySelectorAll('.thumbnail img');
-      thumbnails.forEach(function (thumbnail) {
-        thumbnail.classList.remove('selected');
-      });
-      element.classList.add('selected');
-    }
-
-    function decrement() {
-      var quantity = document.getElementById('quantity');
-      if (quantity.value > 0) {
-        quantity.value = parseInt(quantity.value) - 1;
-      }
-    }
-
-    function increment() {
-      var quantity = document.getElementById('quantity');
-      quantity.value = parseInt(quantity.value) + 1;
-    }
-  </script>
+  <script src="js/script.js"></script>
 </body>
 
 </html>
