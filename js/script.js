@@ -1,6 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     const cartIcon = document.getElementById("cartIcon");
     const cartCard = document.getElementById("cartCard");
+    const btnBuy = document.querySelector(".btn-buy");
+    const cartItem = document.querySelector(".cart-item");
+    const cartPrice = document.querySelector(".cart-price")
+    const btnCheckout = document.querySelector(".btn-checkout")
+    const cartText = document.getElementById("cartText")
+    const quantityInput = document.getElementById("quantity");
+    
 
     // Exibir e ocultar o carrinho quando o ícone for clicado
     cartIcon.addEventListener("click", function () {
@@ -31,17 +38,22 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    // Função para adicionar ao carrinho e substituir o texto por uma imagem
-    window.addToCard = function() {
-        var quantity = parseInt(document.getElementById("quantity").value);
-        var cartText = document.getElementById("cartText");
+    window.addToCard = function(){
+        const quantity = parseInt(quantityInput.value)
+        if(quantity > 0){
+            const pricePerItem = 125.00;
+            const totalPrice = pricePerItem * quantity;
 
-        if (quantity > 0) {
-            cartText.innerHTML = `<img src="images/image-product-1.jpg" alt="Product Image" class="img-fluid">`;
-        } else {
-            cartText.innerHTML = "Your cart is empty.";
+            cartText.style.display = "none"
+
+            cartItem.style.display="block"
+            btnCheckout.style.display="block"
+
+            cartPrice.textContent=`$${totalPrice.toFixed(2)}`
         }
-    };
+    }
+
+    btnBuy.addEventListener("click", addToCard)
 });
 
 
@@ -84,12 +96,6 @@ function changeImage(index, element) {
 }
 
 
-
-//selecione o número do input
-//selecionar o botão add to Cart
-//selecionar o cart-card
-//quando defenir o numero do input e apertar o botão add to Cart, substituir o texto "Your cart is empty" por uma imagem pequena e a descrição do produto do lado, abaixo do produto ter um botão laranja escrito "chekout". 
-//  No cart-card, acima dele aparecer o número do input em uma bolinha laranja.
 
 
 

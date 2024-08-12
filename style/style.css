@@ -82,7 +82,6 @@ a.nav-link:hover::after {
 
 a.nav-link:hover {
   color: var(--gray);
-  /* Altera a cor do texto no hover */
 }
 
 img.rounded-circle:hover {
@@ -97,7 +96,6 @@ img.rounded-circle:hover {
 .cart-card {
   position: absolute;
   top: 4.375rem;
-  /* Ajusta conforme necessário */
   right: 15rem;
   width: 18.75rem;
   height: 14rem;
@@ -129,11 +127,9 @@ img.rounded-circle:hover {
   font-weight: bold;
 }
 .cart-item {
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #ddd;
   border-radius: 10px;
   background-color: #fff;
+  display: none;
 }
 
 .cart-container {
@@ -146,6 +142,9 @@ img.rounded-circle:hover {
 .cart-details {
   flex-grow: 1;
   margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .cart-container p {
@@ -153,6 +152,7 @@ img.rounded-circle:hover {
   font-size: 14px;
   line-height: 1.2;
   color: #333;
+  font-weight: normal;
 }
 
 .price-sneakers {
@@ -179,20 +179,22 @@ img.rounded-circle:hover {
 
 .btn-checkout {
   width: 100%;
-  padding: 10px 0;
-  margin-top: 10px;
-  background-color: #ff7e1b;
-  color: #fff;
+  padding: 15px ;
+  margin-top: 20px;
+  background-color: var(--orange);
+  color: var(--black);
   border: none;
   border-radius: 8px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   text-align: center;
+  display: none;
 }
 
 .btn-checkout:hover {
-  background-color: #ff9f1a;
+  background-color: var(--paleOrange);
+  transition: background-color 0.2s ease;
 }
 
 .nav-side-bar {
