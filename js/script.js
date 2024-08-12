@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnCheckout = document.querySelector(".btn-checkout")
     const cartText = document.getElementById("cartText")
     const quantityInput = document.getElementById("quantity");
-    
+
 
     // Exibir e ocultar o carrinho quando o ícone for clicado
     cartIcon.addEventListener("click", function () {
@@ -26,30 +26,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Funções de incrementar e decrementar quantidade
-    window.increment = function() {
+    window.increment = function () {
         var quantity = document.getElementById("quantity");
         quantity.value = parseInt(quantity.value) + 1;
     };
 
-    window.decrement = function() {
+    window.decrement = function () {
         var quantity = document.getElementById("quantity");
         if (parseInt(quantity.value) > 0) {
             quantity.value = parseInt(quantity.value) - 1;
         }
     };
 
-    window.addToCard = function(){
+    window.addToCard = function () {
         const quantity = parseInt(quantityInput.value)
-        if(quantity > 0){
+        if (quantity > 0) {
             const pricePerItem = 125.00;
             const totalPrice = pricePerItem * quantity;
 
             cartText.style.display = "none"
 
-            cartItem.style.display="block"
-            btnCheckout.style.display="block"
+            cartItem.style.display = "block"
+            btnCheckout.style.display = "block"
 
-            cartPrice.textContent=`$${totalPrice.toFixed(2)}`
+            cartPrice.textContent = `$${totalPrice.toFixed(2)}`
         }
     }
 

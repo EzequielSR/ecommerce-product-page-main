@@ -8,10 +8,10 @@
   --lightGrayishBlue: hsl(223, 64%, 98%);
   --white: hsl(0, 0%, 100%);
   --black: hsl(0, 0%, 0%);
-  --gray:gray;
+  --gray: gray;
   --gray-1: #e0e0e0;
-  
-  
+
+
 }
 
 * {
@@ -126,6 +126,7 @@ img.rounded-circle:hover {
   text-align: center;
   font-weight: bold;
 }
+
 .cart-item {
   border-radius: 10px;
   background-color: #fff;
@@ -179,7 +180,7 @@ img.rounded-circle:hover {
 
 .btn-checkout {
   width: 100%;
-  padding: 15px ;
+  padding: 15px;
   margin-top: 20px;
   background-color: var(--orange);
   color: var(--black);
@@ -254,7 +255,7 @@ img.rounded-circle:hover {
 
 .subtitle-text {
   font-weight: semibold;
-  color:var(--gray);
+  color: var(--gray);
   margin: 25px 0px;
   font-size: 14px;
 }
