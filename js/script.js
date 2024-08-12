@@ -4,9 +4,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnBuy = document.querySelector(".btn-buy");
     const cartItem = document.querySelector(".cart-item");
     const cartPrice = document.querySelector(".cart-price")
+    const cartNumbers = document.querySelector(".cart-numbers")
     const btnCheckout = document.querySelector(".btn-checkout")
     const cartText = document.getElementById("cartText")
     const quantityInput = document.getElementById("quantity");
+    const circleResult = document.querySelector(".circle-result")
+    const deleteIcon = document.querySelector(".img-delete")
 
 
     // Exibir e ocultar o carrinho quando o ícone for clicado
@@ -49,11 +52,25 @@ document.addEventListener("DOMContentLoaded", function () {
             cartItem.style.display = "block"
             btnCheckout.style.display = "block"
 
+            cartNumbers.textContent = quantity
             cartPrice.textContent = `$${totalPrice.toFixed(2)}`
+
+            circleResult.textContent = quantity
+            circleResult.style.display="block"
+            circleResult.style.textAlign="center"
+            circleResult.style.fontSize="10px"
+            circleResult.style.fontWeight="bold"
         }
     }
 
     btnBuy.addEventListener("click", addToCard)
+
+    deleteIcon.addEventListener("click", function () {
+        cartItem.style.display = "none"
+        btnCheckout.style.display = "none"
+        cartText.style.display = "block"
+        circleResult.style.display="none"
+    })
 });
 
 

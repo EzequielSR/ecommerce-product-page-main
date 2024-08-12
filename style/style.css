@@ -85,9 +85,19 @@ a.nav-link:hover {
 }
 
 img.rounded-circle:hover {
-  border: 0.20rem solid var(--orange);
+  border: 0.10rem solid var(--orange);
 }
-
+.circle-result{
+  background-color: var(--orange);
+  border-radius: 20px;
+  width: 14px;
+  height: 13px;
+  position: absolute;
+  top: auto;
+  left: auto;
+  transform: translate(10px,-5px );
+  display: none;
+}
 .cart-icon-container {
   position: relative;
   cursor: pointer;
@@ -151,7 +161,7 @@ img.rounded-circle:hover {
 .cart-container p {
   margin: 0;
   font-size: 14px;
-  line-height: 1.2;
+  line-height: 2.0;
   color: #333;
   font-weight: normal;
 }
