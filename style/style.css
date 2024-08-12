@@ -128,17 +128,80 @@ img.rounded-circle:hover {
   text-align: center;
   font-weight: bold;
 }
+.cart-item {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+}
 
+.cart-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cart-details {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.cart-container p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #333;
+}
+
+.price-sneakers {
+  font-weight: bold;
+  color: #333;
+}
+
+.cart-price {
+  font-weight: bold;
+  color: #000;
+}
+
+.img-product1 {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.img-delete {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.btn-checkout {
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 10px;
+  background-color: #ff7e1b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-checkout:hover {
+  background-color: #ff9f1a;
+}
 
 .nav-side-bar {
   position: fixed;
   top: 0;
   left: -17.5rem;
-  /* Escondido inicialmente fora da tela */
   width: 17.5rem;
   height: 100%;
   background-color: var(--lightGrayishBlue);
-  /* Fundo branco semi-transparente */
   transition: left 0.3s ease;
   z-index: 999;
   padding: 1.25rem;
@@ -147,7 +210,6 @@ img.rounded-circle:hover {
 
 .nav-side-bar.active {
   left: 0;
-  /* Traz a barra lateral para a tela */
 }
 
 .overlay {
@@ -157,7 +219,6 @@ img.rounded-circle:hover {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.336);
-  /* Fundo preto semi-transparente */
   display: none;
   z-index: 200;
 }

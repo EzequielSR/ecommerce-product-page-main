@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const cartIcon = document.getElementById("cartIcon");
     const cartCard = document.getElementById("cartCard");
 
+    // Exibir e ocultar o carrinho quando o ícone for clicado
     cartIcon.addEventListener("click", function () {
         if (cartCard.style.display === "none" || cartCard.style.display === "") {
             cartCard.style.display = "block";
@@ -10,13 +11,40 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-
+    // Ocultar o carrinho se clicar fora dele
     document.addEventListener("click", function (event) {
         if (!cartIcon.contains(event.target) && !cartCard.contains(event.target)) {
             cartCard.style.display = "none";
         }
     });
+
+    // Funções de incrementar e decrementar quantidade
+    window.increment = function() {
+        var quantity = document.getElementById("quantity");
+        quantity.value = parseInt(quantity.value) + 1;
+    };
+
+    window.decrement = function() {
+        var quantity = document.getElementById("quantity");
+        if (parseInt(quantity.value) > 0) {
+            quantity.value = parseInt(quantity.value) - 1;
+        }
+    };
+
+    // Função para adicionar ao carrinho e substituir o texto por uma imagem
+    window.addToCard = function() {
+        var quantity = parseInt(document.getElementById("quantity").value);
+        var cartText = document.getElementById("cartText");
+
+        if (quantity > 0) {
+            cartText.innerHTML = `<img src="images/image-product-1.jpg" alt="Product Image" class="img-fluid">`;
+        } else {
+            cartText.innerHTML = "Your cart is empty.";
+        }
+    };
 });
+
+
 function toggleSidebar() {
     const navSideBar = document.querySelector('.nav-side-bar');
     const overlay = document.querySelector('.overlay');
@@ -38,17 +66,6 @@ document.querySelector('.overlay').addEventListener('click', function () {
     document.querySelector('.nav-side-bar').classList.remove('active');
     document.querySelector('.overlay').classList.remove('active');
 });
-function increment() {
-    var quantity = document.getElementById("quantity");
-    quantity.value = parseInt(quantity.value) + 1;
-}
-
-function decrement() {
-    var quantity = document.getElementById("quantity");
-    if (parseInt(quantity.value) > 0) {
-        quantity.value = parseInt(quantity.value) - 1;
-    }
-}
 function changeImage(index, element) {
     var carousel = document.querySelector('#productCarousel .carousel-inner');
     var items = carousel.querySelectorAll('.carousel-item');
@@ -66,14 +83,13 @@ function changeImage(index, element) {
     element.classList.add('selected');
 }
 
-function decrement() {
-    var quantity = document.getElementById('quantity');
-    if (quantity.value > 0) {
-        quantity.value = parseInt(quantity.value) - 1;
-    }
-}
 
-function increment() {
-    var quantity = document.getElementById('quantity');
-    quantity.value = parseInt(quantity.value) + 1;
-}
+
+//selecione o número do input
+//selecionar o botão add to Cart
+//selecionar o cart-card
+//quando defenir o numero do input e apertar o botão add to Cart, substituir o texto "Your cart is empty" por uma imagem pequena e a descrição do produto do lado, abaixo do produto ter um botão laranja escrito "chekout". 
+//  No cart-card, acima dele aparecer o número do input em uma bolinha laranja.
+
+
+
