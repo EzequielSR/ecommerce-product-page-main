@@ -128,13 +128,26 @@ img.rounded-circle:hover {
   background-color: var(--gray-1);
   margin: 1.5rem 0;
   padding: 0;
+  position: absolute;
+  left: 0;
 }
-
+.cart-text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
 .cart-card p {
   margin: 3.125rem;
   color: var(--gray);
   text-align: center;
   font-weight: bold;
+}
+.cart-items{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .cart-item {
@@ -240,7 +253,7 @@ img.rounded-circle:hover {
   display: block;
 }
 
-.btn-nav-menu {
+button.btn-nav-menu {
   color: var(--black);
   font-weight: bold;
   border: none;
