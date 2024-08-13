@@ -24,7 +24,6 @@
         opacity: 1;
         transition: transform none;
     }
-
     .thumbnails {
         display: none;
     }
@@ -211,7 +210,6 @@
         width: 50%;
         height: 55px;
     }
-
     .cart-card {
         top: 4.375rem;
         right: 0;

@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnCheckout = document.querySelector(".btn-checkout")
     const circleResult = document.querySelector(".circle-result")
     const deleteIcon = document.querySelector(".img-delete")
+    const productImage = document.querySelector(".carousel-item.active img");
+    const modal = document.getElementById("customProductModal");
+    const closeModal = document.querySelector(".custom-close-modal");
 
 
     cartIcon.addEventListener("click", function () {
@@ -23,6 +26,19 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("click", function (event) {
         if (!cartIcon.contains(event.target) && !cartCard.contains(event.target)) {
             cartCard.style.display = "none";
+        }
+    });
+    productImage.addEventListener("click", function () {
+        modal.style.display = "block";
+    });
+
+    closeModal.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
         }
     });
 
@@ -109,7 +125,23 @@ function changeImage(index, element) {
     element.classList.add('selected');
 }
 
-
+function changeImageOverlay (index,element) {
+    const carouselOverlay = document.getElementById("#customModalCarousel-overlay .carousel-inner");
+    const activeItemOverlay = carouselOverlay.querySelectorAll(".carousel-item")
+    
+    activeItemOverlay.forEach(function (itemOverlay, i){
+        itemOverlay.classList.remove('active')
+        if(i === index){
+            itemOverlay.classList.add('active')
+        }
+    });
+    var thumbnailsOverlay = document.querySelectorAll('.custom-thumbnail img');
+    thumbnailsOverlay.forEach(function (thumbnail) {
+        thumbnail.classList.remove('selected');
+    });
+    element.classList.add('selected');
+    
+}
 
 
 

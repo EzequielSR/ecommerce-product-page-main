@@ -331,6 +331,95 @@ button.btn-nav-menu {
   opacity: 0.7;
 }
 
+.custom-modal-overlay {
+  display: none; /* Inicialmente escondido */
+  position: fixed;
+  z-index: 1000; /* Certifique-se de que a modal esteja na frente */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8); /* Fundo preto semi-transparente */
+}
+.custom-modal-overlay.active {
+  display: block;
+}
+.custom-modal-content {
+  margin: 5% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1001;
+}
+.carousel-item.active img {
+  cursor: pointer;
+}
+.custom-close-modal {
+  display: flex;
+  justify-content: flex-end;
+  margin:0  auto 20px;
+  width: 380px;
+  height: 20px;
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  
+}
+.custom-button-img {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+img.custom-icon-control{
+  width: 13px;
+  height: 18px;
+}
+.custom-button-img-overlay {
+  height: 51px;
+  width: 50px;
+  border-radius: 50%;
+  margin: auto 10px;
+  border: none;
+  background-color: var(--white);
+}
+
+button.carousel-control-prev-overlay{
+  position: absolute;
+  z-index: 99999;
+  top: 10rem;
+  left: -2rem;
+}
+button.carousel-control-next-overlay{
+  position: absolute;
+  z-index: 99999;
+  top: 10rem;
+  left: 23rem;
+}
+
+.custom-thumbnails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:385px;
+  height: 121px;
+  margin: 10px auto 0;
+  gap: 15px;
+}
+.custom-thumbnail img {
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 10px;
+}
+.custom-thumbnail img.selected {
+  border-color: #ff7d1a; /* Cor da borda para o thumbnail selecionado */
+}
+
 
 
 .attribution {
