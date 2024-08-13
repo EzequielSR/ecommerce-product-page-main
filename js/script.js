@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnCheckout = document.querySelector(".btn-checkout")
     const circleResult = document.querySelector(".circle-result")
     const deleteIcon = document.querySelector(".img-delete")
-    const productImage = document.querySelector(".carousel-item.active img");
+    const productImage = document.querySelector(".carousel-item.active ");
     const modal = document.getElementById("customProductModal");
     const closeModal = document.querySelector(".custom-close-modal");
 
@@ -123,25 +123,59 @@ function changeImage(index, element) {
         thumbnail.classList.remove('selected');
     });
     element.classList.add('selected');
+
+    var thumbnailContainers = document.querySelectorAll('.thumbnail');
+    thumbnailContainers.forEach(function (container) {
+        container.classList.remove('selectedThumbnail');
+    });
+    element.parentElement.classList.add('selectedThumbnail');
 }
 
-function changeImageOverlay (index,element) {
-    const carouselOverlay = document.getElementById("#customModalCarousel-overlay .carousel-inner");
-    const activeItemOverlay = carouselOverlay.querySelectorAll(".carousel-item")
+function changeImageOverlay(index, element) {
+   
+    var carousel = document.querySelector('#customModalCarousel-overlay .carousel-inner-ov');
+    var items = carousel.querySelectorAll('.carousel-item-overlay');
     
-    activeItemOverlay.forEach(function (itemOverlay, i){
-        itemOverlay.classList.remove('active')
-        if(i === index){
-            itemOverlay.classList.add('active')
-        }
+    items.forEach(function (item, i) {
+      item.classList.remove('active');
+      if (i === index) {
+        item.classList.add('active');
+      }
     });
-    var thumbnailsOverlay = document.querySelectorAll('.custom-thumbnail img');
-    thumbnailsOverlay.forEach(function (thumbnail) {
-        thumbnail.classList.remove('selected');
+  
+    var thumbnails = document.querySelectorAll('.custom-thumbnail img');
+    thumbnails.forEach(function (thumbnail) {
+      thumbnail.classList.remove('selectedIMG');
     });
-    element.classList.add('selected');
+    element.classList.add('selectedIMG');
+  
+    var thumbnailContainers = document.querySelectorAll('.custom-thumbnail');
+    thumbnailContainers.forEach(function (container) {
+      container.classList.remove('selectedThumbnailOV');
+    });
+    element.parentElement.classList.add('selectedThumbnailOV');
+  }
+  
+  function updateOverlayCarousel(index) {
+    var carousel = document.querySelector('#customModalCarousel-overlay .carousel-inner-ov');
+    var items = carousel.querySelectorAll('.carousel-item-overlay');
     
-}
-
-
-
+    items.forEach(function (item, i) {
+      item.classList.remove('active');
+      if (i === index) {
+        item.classList.add('active');
+      }
+    });
+  
+    var thumbnails = document.querySelectorAll('.custom-thumbnail img');
+    thumbnails.forEach(function (thumbnail) {
+      thumbnail.classList.remove('selectedIMG');
+    });
+    thumbnails[index].classList.add('selectedIMG');
+  
+    var thumbnailContainers = document.querySelectorAll('.custom-thumbnail');
+    thumbnailContainers.forEach(function (container) {
+      container.classList.remove('selectedThumbnailOV');
+    });
+    thumbnailContainers[index].classList.add('selectedThumbnailOV');
+  }

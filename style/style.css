@@ -49,7 +49,6 @@ header {
 
 li a.nav-link {
   position: relative;
-  /* Necessário para posicionar o pseudo-elemento ::after */
 }
 
 a.nav-link {
@@ -59,9 +58,7 @@ a.nav-link {
   position: relative;
   display: inline-block;
   padding: 0.625rem 0;
-  /* Espaçamento visual */
   font-weight: normal;
-  /* Torna o texto em negrito */
 }
 
 a.nav-link::after {
@@ -323,24 +320,26 @@ button.btn-nav-menu {
 }
 
 .thumbnail img.selected {
-  border: 2px solid var(--orange);
-  opacity: .6;
+  opacity: .5;
 }
-
+.thumbnail.selectedThumbnail{
+  border:2px solid var(--orange);
+  border-radius: 11px;
+}
 .thumbnail:hover {
   opacity: 0.7;
 }
 
 .custom-modal-overlay {
-  display: none; /* Inicialmente escondido */
+  display: none; 
   position: fixed;
-  z-index: 1000; /* Certifique-se de que a modal esteja na frente */
+  z-index: 1000; 
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8); /* Fundo preto semi-transparente */
+  background-color: rgba(0, 0, 0, 0.8); 
 }
 .custom-modal-overlay.active {
   display: block;
@@ -401,7 +400,9 @@ button.carousel-control-next-overlay{
   top: 10rem;
   left: 23rem;
 }
-
+#customModalCarousel-overlay {
+  border-radius: 10px;
+}
 .custom-thumbnails {
   display: flex;
   justify-content: center;
@@ -413,13 +414,21 @@ button.carousel-control-next-overlay{
 }
 .custom-thumbnail img {
   cursor: pointer;
-  border: 2px solid transparent;
+  opacity: 1;
+  transition: opacity 0.3s ease;
   border-radius: 10px;
 }
-.custom-thumbnail img.selected {
-  border-color: #ff7d1a; /* Cor da borda para o thumbnail selecionado */
+.custom-thumbnail img.selectedIMG {
+  opacity: .5;
+  background-color: white;
 }
-
+.custom-thumbnail.selectedThumbnailOV{
+  border: 2px solid var(--orange);
+  border-radius: 11px;
+}
+.custom-thumbnail:hover{
+  opacity: .7;
+}
 
 
 .attribution {

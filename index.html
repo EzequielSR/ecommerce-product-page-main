@@ -158,7 +158,7 @@
           </div>
           <div class="thumbnails">
 
-            <div class=" thumbnail">
+            <div class=" thumbnail selectedThumbnail">
               <img src="images/image-product-1.jpg" class="img-fluid selected" alt="Thumbnail 1"
                 onclick="changeImage(0, this)">
             </div>
@@ -174,49 +174,7 @@
           </div>
         </div>
         
-        <div id="customProductModal" class="custom-modal-overlay">
-          <div class="custom-modal-content">
-              <span class="custom-close-modal"><img src="images/icon-close.svg" alt=""></span>
-              <div id="customModalCarousel-overlay" class="carousel slide" data-bs-interval="false">
-                  <div class="carousel-inner">
-                      <div class="carousel-item-overlay active">
-                          <img src="images/image-product-1.jpg" class="d-block w-100" alt="Product Image 1">
-                      </div>
-                      <div class="carousel-item">
-                          <img src="images/image-product-2.jpg" class="d-block w-100" alt="Product Image 2">
-                      </div>
-                      <div class="carousel-item">
-                          <img src="images/image-product-3.jpg" class="d-block w-100" alt="Product Image 3">
-                      </div>
-                      <div class="carousel-item">
-                          <img src="images/image-product-4.jpg" class="d-block w-100" alt="Product Image 4">
-                      </div>
-                  </div>
-                  <button class="carousel-control-prev-overlay custom-button-img-overlay" type="button" data-bs-target="#customModalCarousel" data-bs-slide="prev">
-                      <img src="images/icon-previous.svg" alt="previous icon" class="custom-icon-control">
-                      <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next-overlay custom-button-img-overlay" type="button" data-bs-target="#customModalCarousel" data-bs-slide="next">
-                      <span class="visually-hidden">Next</span>
-                      <img src="images/icon-next.svg" alt="next icon" class="custom-icon-control">
-                  </button>
-              </div>
-              <div class="custom-thumbnails">
-                  <div class="custom-thumbnail">
-                      <img src="images/image-product-1.jpg" class="img-fluid selected" alt="Thumbnail 1" onclick="changeImage(0, this)">
-                  </div>
-                  <div class="custom-thumbnail">
-                      <img src="images/image-product-2.jpg" class="img-fluid" alt="Thumbnail 2" onclick="changeImage(1, this)">
-                  </div>
-                  <div class="custom-thumbnail">
-                      <img src="images/image-product-3.jpg" class="img-fluid" alt="Thumbnail 3" onclick="changeImage(2, this)">
-                  </div>
-                  <div class="custom-thumbnail">
-                      <img src="images/image-product-4.jpg" class="img-fluid" alt="Thumbnail 4" onclick="changeImage(3, this)">
-                  </div>
-              </div>
-          </div>
-      </div>
+        
       
 
         <div class="col-md-6 contain">
@@ -241,6 +199,49 @@
                 cart</button>
             </div>
         </div>
+        <div id="customProductModal" class="custom-modal-overlay">
+          <div class="custom-modal-content">
+              <span class="custom-close-modal"><img src="images/icon-close.svg" alt=""></span>
+              <div id="customModalCarousel-overlay" class="carousel slide" data-bs-interval="false">
+                  <div class="carousel-inner-ov">
+                      <div class="carousel-item-overlay active">
+                          <img src="images/image-product-1.jpg" class="d-block w-100" alt="Product Image 1">
+                      </div>
+                      <div class="carousel-item">
+                          <img src="images/image-product-2.jpg" class="d-block w-100" alt="Product Image 2">
+                      </div>
+                      <div class="carousel-item">
+                          <img src="images/image-product-3.jpg" class="d-block w-100" alt="Product Image 3">
+                      </div>
+                      <div class="carousel-item">
+                          <img src="images/image-product-4.jpg" class="d-block w-100" alt="Product Image 4">
+                      </div>
+                  </div>
+                  <button class="carousel-control-prev-overlay custom-button-img-overlay" type="button" data-bs-target="#customModalCarousel" data-bs-slide="prev">
+                      <img src="images/icon-previous.svg" alt="previous icon" class="custom-icon-control">
+                      <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next-overlay custom-button-img-overlay" type="button" data-bs-target="#customModalCarousel" data-bs-slide="next">
+                      <span class="visually-hidden">Next</span>
+                      <img src="images/icon-next.svg" alt="next icon" class="custom-icon-control">
+                  </button>
+              </div>
+              <div class="custom-thumbnails">
+                  <div class="custom-thumbnail selectedThumbnailOV">
+                      <img src="images/image-product-1.jpg" class="img-fluid selectedIMG" alt="Thumbnail 1" onclick="changeImageOverlay(0, this)">
+                  </div>
+                  <div class="custom-thumbnail">
+                      <img src="images/image-product-2.jpg" class="img-fluid" alt="Thumbnail 2" onclick="changeImageOverlay(1, this)">
+                  </div>
+                  <div class="custom-thumbnail">
+                      <img src="images/image-product-3.jpg" class="img-fluid" alt="Thumbnail 3" onclick="changeImageOverlay(2, this)">
+                  </div>
+                  <div class="custom-thumbnail">
+                      <img src="images/image-product-4.jpg" class="img-fluid" alt="Thumbnail 4" onclick="changeImageOverlay(3, this)">
+                  </div>
+              </div>
+          </div>
+      </div>
       </div>
     </div>
 
