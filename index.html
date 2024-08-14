@@ -189,10 +189,10 @@
             </div>
             <div class="purchase">
 
-              <div class="d-flex align-items-center mb-3 count">
+              <div class="d-flex align-items-center mb-3 count" id="counter">
                 <button class="btn btn-minus" onclick="decrement()"><img src="images/icon-minus.svg" alt="Button minus image"></button>
                 <input type="text" class="form-control number-input" value="0" id="quantity"
-                   name="input-quantity">
+                   name="input-quantity" aria-labelledby="counter">
                 <button class="btn btn-plus" onclick="increment()"><img src="images/icon-plus.svg" alt="Button plus image"></button>
               </div>
               <button class=" btn-buy" onclick="addToCard()"><img src="images/icon-cart.svg" alt="cart image">Add to

@@ -307,7 +307,10 @@ button.btn-nav-menu {
   background-color: var(--paleOrange);
   transition: background-color 0.2s ease;
 }
-
+input.number-input{
+  width: 60px;
+        text-align: center;
+}
 .thumbnails {
   display: flex;
   justify-content: space-between;
