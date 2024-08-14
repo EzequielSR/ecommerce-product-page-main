@@ -10,6 +10,10 @@
     .gray-line {
         display: none;
     }
+    .profile{
+        width: auto;
+        height: auto;
+    }
 
     button.button-img {
         height: 51px;
